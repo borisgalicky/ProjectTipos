@@ -19,7 +19,6 @@ public class User {
         this.email = email;
         generetaToken();
     }
-
     private void generetaToken() {
         char[] text=new char[40];
         Random random=new Random();
@@ -31,23 +30,18 @@ public class User {
 
         System.out.println(token);
     }
-
     public String getFirstname() {
         return firstname;
     }
-
     public String getLastname() {
         return lastname;
     }
-
     public String getLogin() {
         return login;
     }
-
     public String getEmail() {
         return email;
     }
-
     public String getToken() {
         return token;
     }

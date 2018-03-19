@@ -31,6 +31,10 @@ public class TiposApplication extends Application<TiposConfiguration> {
     @Override
     public void run(final TiposConfiguration configuration,
                     final Environment environment) {
+
+        String user=configuration.getUser();
+        String pass=configuration.getPassword();
+        System.out.println("Data z configu: "+user+" "+pass);
         // TODO: implement application
         environment.jersey().register( new Login() );
         environment.jersey().register( new Bets() );
@@ -38,7 +42,7 @@ public class TiposApplication extends Application<TiposConfiguration> {
 
         final FilterRegistration.Dynamic cors =
                 environment.servlets().addFilter("CORS", CrossOriginFilter.class);
-// Configure CORS parameters
+        // Configure CORS parameters
         cors.setInitParameter("allowedOrigins", "*");
         cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
         cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
